@@ -9,13 +9,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.Select;
-
 public class HB_havale {
 
 
 
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.gecko.driver", "C:\\work\\webdriver\\geckodriver.exe");
+		
+		System.setProperty("webdriver.gecko.driver", "C:\\work\\geckodriver.exe");
 		WebDriver driver=new FirefoxDriver();
 
 		
@@ -23,9 +23,9 @@ public class HB_havale {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(200, TimeUnit.SECONDS);//for the passing of captche i should pass manuel to this step because of this step  
 		
-		driver.findElement(By.xpath("//*[@id=\'email\']")).sendKeys("mehmetbaytekin36@gmail.com");
-		driver.findElement(By.xpath("//*[@id=\'password\']")).sendKeys("1234567");
-		driver.findElement(By.cssSelector("button.btn.full.btn-login-submit")).click();
+		driver.findElement(By.xpath("//*[@id='txtUserName']")).sendKeys("username@gmail.com");
+		driver.findElement(By.xpath("//*[@id='txtPassword']")).sendKeys("123456Mb");
+		driver.findElement(By.cssSelector("#btnLogin")).click();
 	
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[@id=\'SearchBoxOld\']/div/div/div[1]/div[2]/div/input")).sendKeys("kitap");
@@ -34,15 +34,15 @@ public class HB_havale {
 		Thread.sleep(4000);
 	
 
-		driver.findElement(By.cssSelector("li.search-item:nth-child(2) > div:nth-child(1) > a:nth-child(2) > figure:nth-child(1) > div:nth-child(1) > img:nth-child(1)")).click(); //kitaba týkla
+		driver.findElement(By.cssSelector("li.search-item:nth-child(2) > div:nth-child(1) > a:nth-child(2) > figure:nth-child(1) > div:nth-child(1) > img:nth-child(1)")).click(); //kitaba tykla
 		Thread.sleep(4000);
 		driver.findElement(By.cssSelector("#addToCart")).click(); //sepete ekle
 		Thread.sleep(3000);
 		
 	
-		driver.findElement(By.cssSelector("a.OldMyAccount-2OvEz")).click(); //go to shoppingchart
+		driver.findElement(By.cssSelector("#shoppingCart")).click(); //go to shoppingchart
 		Thread.sleep(2000);
-		driver.findElement(By.cssSelector(".btn-primary")).click(); //done shopping
+		driver.findElement(By.cssSelector(".btn-primary > span:nth-child(1)")).click(); //done shopping
 		Thread.sleep(2000);
 		//complicate the adress
 		driver.findElement(By.id("first-name")).sendKeys("mehmet");
@@ -57,7 +57,7 @@ public class HB_havale {
 		Thread.sleep(1000);
 		driver.findElement(By.cssSelector("div.control-group:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > ul:nth-child(2) > li:nth-child(8) > a:nth-child(1) > span:nth-child(1)")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id='address']")).sendKeys("kadýköy kuyubasý no:1");
+		driver.findElement(By.xpath("//*[@id='address']")).sendKeys("kadyköy kuyubasy no:1");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@id='address-name']")).sendKeys("ev");
 		Thread.sleep(1000);
@@ -78,9 +78,16 @@ public class HB_havale {
 		driver.findElement(By.cssSelector("button.btn:nth-child(2)")).click();
 		
 		Thread.sleep(4000);
-		
+		driver.findElement(By.xpath("//*[@id='gsm-no']")).sendKeys("5071922060");
+		Thread.sleep(3000);
+		driver.findElement(By.cssSelector(".form-actions > button:nth-child(1)")).click();
+		Thread.sleep(60000);
+		driver.findElement(By.xpath("//*[@id='act-code']")).click(); // telefona gelen kodu gir 
+		Thread.sleep(2000);
+		driver.findElement(By.cssSelector(".form-actions > button:nth-child(1)")).click();
+		Thread.sleep(2000);
 	//canceled of order
-		driver.findElement(By.cssSelector(".link-type-one")).click(); //hesabým
+		driver.findElement(By.cssSelector(".link-type-one")).click(); //hesabym
 		Thread.sleep(3000);
 	
 		
@@ -97,18 +104,6 @@ public class HB_havale {
 		//log out 
 		
 		driver.findElement(By.cssSelector(".StaticMenuItem-Mw8y0")).click();
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 
